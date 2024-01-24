@@ -1,0 +1,73 @@
+body{
+     background-color: #202124;
+     display: flex;
+     align-items:center;
+     justify-content: center;
+     overflow: hidden;
+    }
+.containeer{
+     position: absolute;
+     bottom:0%;
+     left:50%;
+     transform: translateX(-50%);
+     cursor:pointer;
+     transition: all 3s;
+}
+.rocket{
+     transform: scale(0.8,0.8);
+}
+.rocket::before{
+     content:'';
+     position: absolute;
+     top:90%;
+     left: 49%;
+     transform: translateX(-50%);
+     cursor: pointer;
+     height: 0px;
+     width:15px;
+     background: linear-gradient(#FFFF,#ff4500,transparent);
+}
+.rocket::after{
+    content:'';
+    position: absolute;
+    top:90%;
+    left: 49%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    height:0px;
+    width:25px;
+    background: linear-gradient(#FFFF,#ff4500,transparent);
+    filter: blur(15px);
+    transition: all 3s;
+}
+.containeer.active{
+     bottom: 50%;
+}
+.containeer.active .rocket{
+    animation:movement 0.2s 2.5s ease infinite;
+}
+.containeer.active .rocket::before{
+     height: 200px;
+}
+.containeer.active .rocket::after{
+    height: 300px;
+}
+@keyframes movement{
+     0%, 100%{
+         transform: translateY(-2px);
+     }
+     50%{
+        transform: translateY(2px);
+     }
+}
+.name{
+     color:white;
+     font-size: 20px;
+     margin-top: 5px;
+}
+.name1{ 
+    color:white;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
